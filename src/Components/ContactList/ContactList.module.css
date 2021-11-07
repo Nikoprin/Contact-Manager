@@ -1,0 +1,38 @@
+.contacts {
+    margin: 30px 0;
+}
+.contacts h2 {
+    margin: 0;
+}
+.contactsList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;    padding: 20px 15px;
+    border-radius: 20px;
+    transition: .3s ease-in-out;
+    background: white;
+}
+.profile {
+    display: flex;
+    align-items: center;
+}
+.profile img {
+    width: 80px;
+}
+.profileDescription {
+    margin: 0 20px;
+    text-align: left;
+}
+.contactsTitle {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+.modalInput {
+    width: 80%;
+    margin: 20px 0;
+    padding: 15px 20px;
+    outline: none;
+}

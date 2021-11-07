@@ -1,30 +1,23 @@
-import React from 'react';
-import './App.css';
-import Home from './containers/Home';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import ContactUS from './containers/ContactUS';
-import Post from './containers/Post';
-
+import React from "react";
+import "./App.css";
+import Contacts from "./Components/ContactList/Contacts";
+import ContactProfile from "./Components/ContactProfile/ContactProfile";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
   return (
-
     <Router>
       <div className="App">
-        <Header />
-        <Hero />
-
-        <Route path="/" exact component={Home} />
-        <Route path="/contact-us"  component={ContactUS}/>
-        <Route path="/post/:slug" component={Post} />
-
-        {/* I am trying to learn forking, plz accept */}
-
-        
+        <Link to="/Contacts" className="mainLink">Contact Manager</Link>
+        <Switch>
+          <Route path="/Contacts">
+            <Contacts/>
+          </Route>
+          <Route exact path="/ContactProfile/:fullName/:email">
+            <ContactProfile />
+          </Route>
+        </Switch>
       </div>
     </Router>
-    
   );
 }
 
