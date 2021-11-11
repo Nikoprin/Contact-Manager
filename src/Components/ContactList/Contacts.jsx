@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import Button from "../UI/Button/Button";
 import classes from "./Contacts.module.css";
@@ -57,10 +57,10 @@ export default function Contacts() {
     setContacts(contacts.filter((user) => user.id !== contact.id));
   };
   const [searchContact, setSearchContacts] = useState("");
-  const [selectedSort, setSelectedSort] = useState("");
-  const sortContacts = (sort) => {
-    setSelectedSort(sort);
-    setContacts([...contacts].sort((x, y) => (x > y ? 1 : -1)));
+  const [selectedSort, setSelectedSort] = useState(null);
+  const sortContacts = (type) => {
+    setSelectedSort(type);
+    setContacts([...contacts].sort((a, b) => a[type].localeCompare(b[type])));
   };
   return (
     <div className={classes.contacts}>
@@ -97,18 +97,18 @@ export default function Contacts() {
       <div>
         <Select
           defaultOption="Отсортировать по"
-          value={selectedSort}
-          onChange={sortContacts}
           options={[
             {
               value: "fullName",
-              name: "По имени",
+              name: "Сортировка по имени",
             },
             {
               value: "email",
-              name: "По email",
+              name: "По Email",
             },
           ]}
+          value={selectedSort}
+          onChange={sortContacts}
         />
       </div>
       <div>

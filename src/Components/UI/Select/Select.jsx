@@ -20,7 +20,3 @@ export default function Select({ defaultOption, options, value, onChange }) {
     </select>
   );
 }
-
-// .sort((x, y) => {
-//     return x.fullName > y.fullName ? 1 : -1;
-//   })
